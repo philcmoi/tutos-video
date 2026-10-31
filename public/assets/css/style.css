@@ -1147,3 +1147,92 @@ p {
     font-size: 0.875rem;
   }
 }
+
+/* ============================================================
+   Page de connexion admin — bouton « Retour à l'accueil »
+   (ajout — ne modifie aucune règle existante)
+   ============================================================ */
+
+.login-form .btn-back-home {
+  position: absolute;
+  top: -2.2rem;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.login-form .btn-back-home:hover,
+.login-form .btn-back-home:focus {
+  color: #111;
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Variante utilisée dans le dashboard (lien en haut de page) */
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.btn-back-home:hover,
+.btn-back-home:focus {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Bouton « Retour à l'accueil » (pages admin)
+   (ajout — ne modifie aucune règle existante)
+   ============================================================ */
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding: 0.5rem 0.9rem;
+  background: #f8fafc;
+  color: #374151;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn-back-home:hover,
+.btn-back-home:focus {
+  background: #eef2ff;
+  color: var(--primary, #6366f1);
+  border-color: var(--primary, #6366f1);
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-back-home:active {
+  transform: translateY(1px);
+}
+
+.btn-back-home svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn-back-home:hover svg {
+  transform: translateX(-3px);
+}

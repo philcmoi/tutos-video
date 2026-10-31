@@ -25,12 +25,31 @@ $videos = $videos ?? [];
         th, td { padding:.6rem; border-bottom:1px solid var(--border); text-align:left; font-size:.95rem; }
         th { background:#f1f5f9; }
         .btn-logout { float:right; color:#dc2626; text-decoration:none; }
+
+        /* 🔙 Lien retour à l'accueil */
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-bottom: 1rem;
+            font-size: .9rem;
+            color: #555;
+            text-decoration: none;
+        }
+        .btn-back-home:hover,
+        .btn-back-home:focus { color: #111; text-decoration: underline; }
     </style>
 </head>
 <body>
 <main class="container">
+
+    <!-- 🔙 Retour à l'accueil — toujours visible -->
+    <a class="btn-back-home" href="<?= BASE_URL ?>" title="Retour à l'accueil">
+        ← Retour à l'accueil
+    </a>
+
     <h1>Dashboard
-        <a class="btn-logout" href="<?= BASE_PATH ?>/admin/logout"
+        <a class="btn-logout" href="<?= BASE_URL ?>/admin/logout"
            onclick="return confirm('Se déconnecter ?');">Déconnexion</a>
     </h1>
 
@@ -46,7 +65,7 @@ $videos = $videos ?? [];
     <?php endif; ?>
 
     <h2>Ajouter une vidéo</h2>
-    <form class="admin-form" method="post" action="<?= BASE_PATH ?>/admin/videos">
+    <form class="admin-form" method="post" action="<?= BASE_URL ?>/admin/videos">
         <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'] ?? '') ?>">
 
         <label>URL YouTube (ou ID)</label>
@@ -97,7 +116,7 @@ $videos = $videos ?? [];
                     <td><?= $v['published'] ? '✅' : '❌' ?></td>
                     <td>
                         <form method="post"
-                              action="<?= BASE_PATH ?>/admin/videos/<?= (int)$v['id'] ?>/delete"
+                              action="<?= BASE_URL ?>/admin/videos/<?= (int)$v['id'] ?>/delete"
                               onsubmit="return confirm('Supprimer cette vidéo ?');"
                               style="display:inline">
                             <input type="hidden" name="csrf" value="<?= htmlspecialchars($_SESSION['csrf'] ?? '') ?>">
